@@ -45,4 +45,19 @@ RXD and TXD on esp8285 are UART1. The swedish teamuses the library [WIFIEspAT](h
 
 ### Raspberry Pi Pico W
 
-TBD  
+Information is taken from [the official documentation](https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf) (schematic on page 21). The connection to the CYW43439 is over SPI instead of UART:
+
+```
+_______________              _____________________________
+rp2040  GPIO23 |-- WL_ON  --| WL_REG_ON and BL_REG_ON  
+        GPIO24 |-- WL_D   --| SDIO_CMD and SDIO_DATA0 to 2 
+        GPIO25 |-- WL_CS  --| SDIO_DATA3
+        GPIO29 |-- WL_CLK --| SDIO_CLK        CYW43439KUBG
+_______________|            |_____________________________
+```
+
+This looks fancy in the documentation, especially the WL_D (aka MOSI) distribution over `SDIO_DATA0`, `SDIO_DATA1` and `SDIO_DATA2` with 2 resistors.
+
+![rp2040 side](pico_w_rp2040.png)
+![CYP43439 side](pico_w_cyw43439.png)
+
