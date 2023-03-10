@@ -13,11 +13,16 @@ Manufacturer:
 - http://www.lilygo.cn/prod_view.aspx?TypeId=50062&Id=1410&FId=t3:50062:3
 - https://github.com/Xinyuan-LilyGO/T-PicoC3
 
-## Pinmap
+## Pinmap and serial connection rp2040 - esp32c3
 
-![Pinmap](https://github.com/kreier/t-display/blob/main/pinmap/pinmap_T-PicoC3.jpg)
+![Pinmap T-PicoC3](pinmap.png)
 
-![Pinmap ESP](pinmap.png)
+### UART on rp2040:
+![UART rp2040](uart_rp2040.png)
+
+### UART on esp32c3:
+![UART esp32c3](uart_esp32c3.png)
+![UART esp32c3](uart_esp32c3_2.png)
 
 Link to schematic: https://github.com/Xinyuan-LilyGO/T-PicoC3/blob/main/Schematic/T-PicoC3.pdf
 

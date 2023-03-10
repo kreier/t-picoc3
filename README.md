@@ -22,6 +22,8 @@ Manufacturer:
 
 ### UART on esp32c3:
 ![UART esp32c3](docs/uart_esp32c3.png)
+![UART esp32c3](docs/uart_esp32c3_2.png)
+
 
 Link to schematic: https://github.com/Xinyuan-LilyGO/T-PicoC3/blob/main/Schematic/T-PicoC3.pdf
 
