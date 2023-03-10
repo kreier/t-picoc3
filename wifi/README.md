@@ -6,7 +6,7 @@ I would like to use the integrated [Circuitpython Web Workflow Code Editor](http
 - [Datasheet rp2040](https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf)
 - [Datasheet esp32c3](https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf)
 
-## Pinmap rp
+## Pinmap
 
 That's what I figured out from the documentation provided by LilyGO:
 
@@ -20,7 +20,7 @@ _______________|          1 -- 15 -| IO9     10k to VCC
                           2 -- 14 -| IO8     10k to VCC
                           3 --  6 -| IO2
                           4 --  7 -| RST     10k to VCC
-                                   |___________________
+                       board       |___________________
 ```
 
 On the rp2040 side it uses pins 8, 9, 10 and 11. They are used by SPI1 as RX, CSn, SCK and TX. The display is connected on pin 0, 1, 2, 3, 4, 5 for RX, CSn, SCK, TX, RX and CSn of SPI0 (RST, DC, SCLK, MOSI, BL and CS). Display and wifi can work on different SPI busses.
@@ -29,9 +29,19 @@ The 10 kiloOhm resistors to VCC for pin IO8, IO9 and RST are part of the bootstr
 
 The protocol running is AT with 115200 bps. Not sure how the two other boards with attached Wifi module do it:
 
-### Challenger
+### Challenger NB RP2040 WIFI
 
-TBD.
+Info and documentation [on the website of ilabs.se](https://ilabs.se/product/challenger-nb-rp2040-wifi-chip/) and [documentation](https://ilabs.se/challenger-nb-rp2040-wifi-datasheet/) and [design files](https://gitlab.com/invectorlabs/hw/challenger-nb-rp2040-wifi).
+
+```
+_______________              _____________
+rp2040  GPIO4  |-- ESP_TX --| TXD  esp8285  
+        GPIO5  |-- ESP_RX --| RXD 
+        GPIO19 |-- RST    --| RST
+        GPIO13 |-- MODE   --| MODE
+_______________|            |_____________
+```
+RXD and TXD on esp8285 are UART1. The swedish teamuses the library [WIFIEspAT](https://github.com/JAndrassy/WiFiEspAT) - but I don't know yet if the web workflow works.
 
 ### Raspberry Pi Pico W
 
